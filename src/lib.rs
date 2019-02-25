@@ -1,5 +1,4 @@
 // Copyright 2017 Marcus Heese
-//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -155,7 +154,7 @@ pub struct Ctx {
 }
 
 impl Ctx {
-  pub fn new(filename: &'static str) -> Result<Ctx, Error> {
+  pub fn new<'a>(filename: &'a str) -> Result<Ctx, Error> {
     unsafe {
       let lib = libloading::Library::new(filename)?;
       let mut list: CK_FUNCTION_LIST_PTR = mem::uninitialized();
